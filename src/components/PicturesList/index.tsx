@@ -1,8 +1,11 @@
+import { Picture } from "./Picture"
+
 export function PicturesList({ pictures }) {
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <div>Hello World</div>
-      <div>Hello World</div>
-    </div>
+    <>
+      {pictures.map(picture => (
+        <Picture key={picture.slug} picture={picture} />
+      ))}
+    </>
   )
 }
