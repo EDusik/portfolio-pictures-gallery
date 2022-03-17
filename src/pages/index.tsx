@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
       new Date(picture.data.creation_date)
     ),
     thumbnail: picture.data.thumbnail.url,
-    badges: picture.data.badges
+    badge: picture.data.badge
   }))
 
   return {
