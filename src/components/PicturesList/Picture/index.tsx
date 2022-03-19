@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import { PictureProps } from 'types'
 
-export function Picture({ picture }) {
+export function Picture({ picture }: PictureProps) {
   return (
     <>
       <h3>{picture.title}</h3>

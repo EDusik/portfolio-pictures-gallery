@@ -4,8 +4,9 @@ import { Hero } from "../components/Hero"
 import { PicturesList } from "../components/PicturesList"
 import { GetStaticProps } from "next/types"
 import { getPrismicClient } from "../services/prismic"
+import { IHero, HomeProps } from 'types'
 
-export default function Home({ hero, pictures }) {
+export default function Home({ hero, pictures }: HomeProps) {
   return (
     <>
       <Hero hero={hero} />
@@ -14,7 +15,7 @@ export default function Home({ hero, pictures }) {
   )
 }
 
-function oneDayInHours() {
+function oneDayInHours(): number {
   return 60 * 60 * 24 // 24 hours
 }
 
@@ -36,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
     linkedin: hero.data.linkedin.url,
   }))
 
-  const hero = Object.assign({}, ...home);
+  const hero: IHero = Object.assign({}, ...home);
   const pictures = pictureResponse.results.map(picture => ({
     slug: picture.uid,
     title: picture.data.title,
