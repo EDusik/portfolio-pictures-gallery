@@ -1,6 +1,7 @@
 import Prismic from '@prismicio/client'
 
 import { Hero } from "../components/Hero"
+import { Footer } from "../components/Footer"
 import { PicturesList } from "../components/PicturesList"
 import { GetStaticProps } from "next/types"
 import { getPrismicClient } from "../services/prismic"
@@ -11,6 +12,7 @@ export default function Home({ hero, pictures }: HomeProps) {
     <>
       <Hero hero={hero} />
       <PicturesList pictures={pictures} />
+      <Footer hero={hero} />
     </>
   )
 }
