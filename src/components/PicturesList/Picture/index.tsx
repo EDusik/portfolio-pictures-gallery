@@ -7,8 +7,8 @@ export function Picture({ picture, show }: PictureProps) {
       className={`relative transition ease-in duration-300 transform ${show ? "" : "translate-y-16 opacity-0"
         }`}
     >
-      <div className="flex absolute inset-0 z-10 transition duration-400 ease-in cursor-pointer	hover:opacity-0">
-        <div className="flex absolute inset-0 bg-black opacity-60">
+      <div className="flex absolute inset-0 transition duration-150	ease-in cursor-pointer">
+        <div className="flex absolute inset-0 bg-slate-700 opacity-70 hover:opacity-0">
           <div className="flex mx-auto text-white justify-center items-center">
             <h3 className="uppercase text-xl">{picture.title}</h3>
             {/*<p className="flex justify-start">{picture.description}</p>

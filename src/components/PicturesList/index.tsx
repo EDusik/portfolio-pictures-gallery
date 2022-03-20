@@ -20,7 +20,7 @@ export function PicturesList({ pictures }: PictureList) {
   };
 
   return (
-    <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-1">
+    <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
       {pictures && pictures.map((picture, index) => (
         <VisibilitySensor
           key={index}
