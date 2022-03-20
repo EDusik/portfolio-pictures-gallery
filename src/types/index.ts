@@ -25,6 +25,7 @@ interface IPicture {
 
 interface PictureProps {
 	picture: IPicture;
+	show: boolean[];
 }
 
 interface PictureList {
