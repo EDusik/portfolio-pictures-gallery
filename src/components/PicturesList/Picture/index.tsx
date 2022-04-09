@@ -1,14 +1,21 @@
-import Image from 'next/image'
+import { useContext } from "react"
 import { PictureProps } from 'types'
+import { Context } from "context/index";
 
 export function Picture({ picture, show }: PictureProps) {
+  const { dispatch } = useContext(Context);
 
   const setFlexColumns = () => {
     return 'flex-auto w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5'
   }
 
+  const handlePicture = picture => {
+    dispatch({ name: "pictureOpened", value: picture });
+  };
+
   return (
     <div
+      onClick={() => handlePicture(picture)}
       className={`relative transition ease-in duration-300 transform ${setFlexColumns()} ${show ? "" : "translate-y-16 opacity-0"
         }`}
     >
