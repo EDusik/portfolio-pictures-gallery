@@ -1,5 +1,3 @@
-import Prismic from '@prismicio/client';
-
 import { Hero } from '../components/Hero';
 import { Footer } from '../components/Footer';
 import { LightBox } from 'components/PictureList/LightBox';
@@ -10,11 +8,18 @@ import { IHero, HomeProps } from 'types';
 import { useContext } from 'react';
 import { Context } from 'context/index';
 
+import Prismic from '@prismicio/client';
+import Head from "next/head";
+
 export default function Home({ hero, pictures }: HomeProps) {
   const { context } = useContext(Context);
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 user-scalable=no" />
+        <title>Eduardo Dusik - Pictures Gallery</title>
+      </Head>
       {context.clickedImage && <LightBox clickedImage={context.clickedImage} />}
       <Hero hero={hero} />
       <PictureList pictures={pictures} />
