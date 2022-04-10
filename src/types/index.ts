@@ -3,6 +3,7 @@ interface IHero {
 	description: string;
 	github: string;
 	linkedin: string;
+	footer: string;
 }
 
 interface HeroProps {
