@@ -1,0 +1,92 @@
+.lightBox {
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  background-color: var(--background-light-box);
+
+  // Open Image Animation
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: .4s;
+
+  .modalBody {
+    background-color: var(--slate-800);
+    margin: 2.5rem;
+    width: calc(100% - 5rem);
+    height: calc(100vh - 5rem);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--slate-600);
+
+    button {
+      position: absolute;
+      right: 3.6rem;
+      top: 3rem;
+      background: transparent;
+      border: 0;
+      font-size: 3rem;
+      color: var(--slate-400);
+      font-size: 1.75rem;
+      filter: 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+
+    .modalTitle {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 6vh;
+    }  
+    
+    .modalDescription {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-self: flex-end;
+      height: 4vh;
+    }
+
+    .picture {
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      height: calc(90vh - 5rem);
+    }
+  }
+
+    h3 {
+      font-size: 1.5rem;
+      line-height: 2.2;
+      color: var(--title);
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--subtitle);
+    }
+
+    time {
+      font-weight: 500;
+    }
+}
+
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
