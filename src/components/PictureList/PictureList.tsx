@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Picture } from "./Picture"
-import { PictureList } from "types"
-import VisibilitySensor from "react-visibility-sensor";
+import { useState } from 'react';
+import { Picture } from './Picture';
+import { PictureList } from 'types';
+import VisibilitySensor from 'react-visibility-sensor';
 
 export function PictureList({ pictures }: PictureList) {
 
