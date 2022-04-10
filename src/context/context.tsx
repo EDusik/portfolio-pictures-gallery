@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 
 const initialContext: any = {
-  pictureOpened: ''
+  clickedImage: ''
 };
 
 const Context = createContext({} as any);
@@ -16,8 +16,8 @@ type GlobalContextProviderProps = {
   children: React.ReactNode
 };
 
-const ContextProvider: React.FunctionComponent<GlobalContextProviderProps> = ({ children, initialState }) => {
-  const [context = initialContext, dispatch] = useReducer(reducer, initialState);
+const ContextProvider: React.FunctionComponent<GlobalContextProviderProps> = ({ children }) => {
+  const [context = initialContext, dispatch] = useReducer(reducer, initialContext);
   const value = { context, dispatch } as any;
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
