@@ -2,16 +2,22 @@ import Prismic from '@prismicio/client'
 
 import { Hero } from "../components/Hero"
 import { Footer } from "../components/Footer"
-import { PicturesList } from "../components/PicturesList"
+import { LightBox } from 'components/LightBox'
+import { PictureList } from "../components/PicturesList"
 import { GetStaticProps } from "next/types"
 import { getPrismicClient } from "../services/prismic"
 import { IHero, HomeProps } from 'types'
+import { useContext } from "react"
+import { Context } from "context/index";
 
 export default function Home({ hero, pictures }: HomeProps) {
+  const { context } = useContext(Context);
+
   return (
     <>
+      {context.clickedImage && <LightBox clickedImage={context.clickedImage} />}
       <Hero hero={hero} />
-      <PicturesList pictures={pictures} />
+      <PictureList pictures={pictures} />
       <Footer hero={hero} />
     </>
   )
@@ -37,6 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
     description: hero.data.description,
     github: hero.data.github.url,
     linkedin: hero.data.linkedin.url,
+    footer: hero.data.footer
   }))
 
   const hero: IHero = Object.assign({}, ...home);
