@@ -1,10 +1,10 @@
-import '../styles/global.css'
+import '../styles/global.css';
 import { ContextProvider } from '../context/context';
 
 function MyApp({ Component, pageProps }) {
   return (
     <ContextProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ContextProvider>
   )
 }

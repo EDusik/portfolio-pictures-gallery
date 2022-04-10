@@ -1,14 +1,14 @@
-import Prismic from '@prismicio/client'
+import Prismic from '@prismicio/client';
 
-import { Hero } from "../components/Hero"
-import { Footer } from "../components/Footer"
-import { LightBox } from 'components/LightBox'
-import { PictureList } from "../components/PicturesList"
-import { GetStaticProps } from "next/types"
-import { getPrismicClient } from "../services/prismic"
-import { IHero, HomeProps } from 'types'
-import { useContext } from "react"
-import { Context } from "context/index";
+import { Hero } from '../components/Hero';
+import { Footer } from '../components/Footer';
+import { LightBox } from 'components/PictureList/LightBox';
+import { PictureList } from '../components/PictureList';
+import { GetStaticProps } from 'next/types';
+import { getPrismicClient } from '../services/prismic';
+import { IHero, HomeProps } from 'types';
+import { useContext } from 'react';
+import { Context } from 'context/index';
 
 export default function Home({ hero, pictures }: HomeProps) {
   const { context } = useContext(Context);
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const homeResponse = await prismic.query([
     Prismic.predicates.at('document.type', 'home')
-  ])
+  ]);
 
   const home = homeResponse.results.map(hero => ({
     name: hero.data.name,
@@ -44,19 +44,19 @@ export const getStaticProps: GetStaticProps = async () => {
     github: hero.data.github.url,
     linkedin: hero.data.linkedin.url,
     footer: hero.data.footer
-  }))
+  }));
 
   const hero: IHero = Object.assign({}, ...home);
   const pictures = pictureResponse.results.map(picture => ({
     slug: picture.uid,
     title: picture.data.title,
     description: picture.data.description,
-    creation_date: new Intl.DateTimeFormat("en-US").format(
+    creation_date: new Intl.DateTimeFormat('en-US').format(
       new Date(picture.data.creation_date)
     ),
     thumbnail: picture.data.thumbnail.url,
     badge: picture.data.badge
-  }))
+  }));
 
   return {
     props: {
