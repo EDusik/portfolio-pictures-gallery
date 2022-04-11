@@ -15,6 +15,7 @@ Build with:
 - [Next.Js](https://nextjs.org/)
 - [Tailwind](https://tailwindcss.com/)
 - [Prismic](https://prismic.io/)
+- [Netlify](https://app.netlify.com/)
 
 ## Commands
 
