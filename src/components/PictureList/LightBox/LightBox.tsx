@@ -1,12 +1,17 @@
 import { useContext } from 'react';
 import { Context } from 'context/index';
+import { GlobalActionType } from 'context/models'
+import { ClickedImage } from 'types'
 import styles from './LightBox.module.scss';
 
-export function LightBox({ clickedImage }) {
+export function LightBox({ clickedImage }: ClickedImage) {
   const { dispatch } = useContext(Context);
 
   const handlePicture = () => {
-    dispatch({ name: 'clickedImage', value: '' });
+    dispatch({
+      type: GlobalActionType.SET_OPEN_IMAGE,
+      payload: undefined
+    });
   };
 
   return (

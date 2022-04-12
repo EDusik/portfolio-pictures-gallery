@@ -32,3 +32,7 @@ export interface PictureProps {
 export interface PictureList {
 	pictures: IPicture[];
 }
+
+export interface ClickedImage {
+	clickedImage: IPicture;
+}
